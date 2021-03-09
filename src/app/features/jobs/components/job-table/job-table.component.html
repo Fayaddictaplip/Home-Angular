@@ -1,0 +1,15 @@
+<table class="table shadow">
+  <thead>
+    <tr>
+      <th>Job Title</th>
+      <th>Employer</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Status</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-job-table-row [job]="job" *ngFor="let job of jobs"></tr>
+  </tbody>
+</table>
