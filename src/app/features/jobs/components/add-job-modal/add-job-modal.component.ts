@@ -1,10 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {FormControl, Validators} from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Job } from '../../models/job.model';
 import { JobsService } from '../../services/jobs.service';
-import { max } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-job-modal',

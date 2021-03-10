@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ListResponse } from '../../../core/models/list-response.model';
-import axios from "axios";
 
 @Injectable({
   providedIn: 'root'
