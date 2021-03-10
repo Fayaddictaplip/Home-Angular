@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ListResponse } from '../../../core/models/list-response.model';
+import axios from "axios";
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,27 @@ export class JobsService {
     return this.http.get<ListResponse<Job>>('https://localhost:5001/api/Jobs').pipe(
       map(value => value.data)
     );
+  }
+
+  postJobs(Job: Job, minSalary: number, maxSalary: number) {
+    return this.http.post('https://localhost:5001/api/AddJobs', {
+      jobTitle: Job.jobTitle,
+      employer: Job.employer,
+      city: Job.city,
+      state: Job.state,
+      status: Job.status,
+      dateLastUpdated: Job.dateLastUpdated,
+      minSalary: minSalary,
+      maxSalary: maxSalary
+    }).subscribe(
+        () => {
+          console.log('Recording completed !');
+          return 200;
+        },
+        (error) => {
+          console.log('Error ! : ' + error);
+          return 401;
+        }
+      );
   }
 }
